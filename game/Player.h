@@ -196,6 +196,10 @@ class idInventory {
 public:
 	int						maxHealth;
 	int						weapons;
+	int exp=0;
+	int level=1;
+	void expGain(int xp);
+	void levelUp();
 // RITUAL BEGIN
 // squirrel: Mode-agnostic buymenus
 	int						carryOverWeapons;

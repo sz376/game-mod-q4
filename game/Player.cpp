@@ -60,6 +60,9 @@ const int WEAPON_DROP_TIME = 20 * 1000;
 // time before a next or prev weapon switch happens
 const int	WEAPON_SWITCH_DELAY		= 150;
 
+// max level
+const int MAX_LEVEL = 10;
+
 const float	PLAYER_ITEM_DROP_SPEED	= 100.0f;
 
 // how many units to raise spectator above default view height so it's in the head of someone
@@ -14078,3 +14081,16 @@ int idPlayer::CanSelectWeapon(const char* weaponName)
 }
 
 // RITUAL END
+
+void idPlayer::expGain(int xp)
+{
+	exp += xp;
+	if (exp > 10 && level < MAX_LEVEL){
+		levelUp();
+	}
+}
+
+void idPlayer::levelUp()
+{
+	maxHealth += 10;
+}
